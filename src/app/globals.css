@@ -2,3 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+@media (prefers-color-scheme:light)  {
+  :root {
+    --foreground-rgb :255,255,255;
+  }
+}
+
+body{
+  color: rgb(var(--foreground-rgb));
+  padding: 1 rem;
+}

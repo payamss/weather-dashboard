@@ -8,7 +8,7 @@ interface ForecastProps {
 
 const Forecast: React.FC<ForecastProps> = ({ forecast }) => {
   return (
-    <div className="bg-gray-800 text-white p-6 rounded-lg shadow-md">
+    <div className="bg-gray-800 text-white p-6 rounded-lg shadow-md ">
       <h2 className="text-2xl font-bold mb-4">Weekly Forecast</h2>
       <div className="grid grid-cols-7 gap-4">
         {forecast.slice(0, 7).map((item, index) => (

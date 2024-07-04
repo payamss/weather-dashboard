@@ -2,7 +2,7 @@ import { ErrorResponse } from '@/app/types/error_response'
 import { WeatherResponse } from '@/app/types/weather_response'
 import { NextResponse } from 'next/server'
 
-export async function GET(request: Request) {
+export async function GET(request: Request, p0: { params: { city: string } }) {
   const { searchParams } = new URL(request.url)
   const city = searchParams.get('city')
   const units = searchParams.get('units') || 'metric'
@@ -29,7 +29,7 @@ export async function GET(request: Request) {
   }
 
  
-  const response = await fetch(url);
+  const response = await fetch(url, { cache:'no-store',next: { revalidate: 10 } });
   const data = await response.json();
   if (response.ok) {
     const weatherData: WeatherResponse = data
