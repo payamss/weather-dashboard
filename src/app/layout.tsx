@@ -1,9 +1,9 @@
+// app/layout.tsx or your main layout file
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Header from "./components/header";
 import Footer from "./components/footer";
-
+import WeatherApp from "./components/main/data_section/current_weather";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,7 +20,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className} min-h-screen flex flex-col bg-gray-900`}>
-        <Header />
+        {/* <Header /> */}
         <main className="flex-grow">{children}</main>
         <Footer  />
       </body>

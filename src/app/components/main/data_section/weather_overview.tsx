@@ -27,7 +27,7 @@ const WeatherOverview: React.FC<WeatherOverviewProps> = ({
       </div>
       <div className="bg-gray-800 text-white p-4 rounded-lg shadow-md">
         <h3 className="font-bold">UV Index</h3>
-        <p>{uvIndex}</p>
+        <p>{uvIndex.toFixed(0)}</p>
       </div>
       <div className="bg-gray-800 text-white p-4 rounded-lg shadow-md">
         <h3 className="font-bold">Humidity</h3>
@@ -47,7 +47,7 @@ const WeatherOverview: React.FC<WeatherOverviewProps> = ({
       </div>
       <div className="bg-gray-800 text-white p-4 rounded-lg shadow-md col-span-2">
         <h3 className="font-bold">Feels Like</h3>
-        <p>{feelsLike}°C</p>
+        <p>{feelsLike.toFixed(1)}°C</p>
       </div>
     </div>
   )

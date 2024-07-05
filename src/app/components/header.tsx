@@ -2,13 +2,17 @@
 "use client";
 
 import { useState } from "react";
-import UnitSelector from "./main/unit_selectore";
 import CitySearch from "./search";
+import UnitSelector from "./main/unit_selectore";
 
-export default function Header() {
-  const [city, setCity] = useState<string>("");
-  const [unit, setUnit] = useState<string>("metric");
+interface HeaderProps {
+  city: string;
+  setCity: (city: string) => void;
+  unit: string;
+  setUnit: (unit: string) => void;
+}
 
+export default function Header({ city, setCity, unit, setUnit }: HeaderProps) {
   return (
     <header className="w-full bg-slate-800 shadow-md py-3 px-3 flex items-center justify-between">
       <div className="text-white font-bold">Weather</div>
