@@ -5,7 +5,7 @@ import CurrentWeather from "./components/main/data_section/current_weather";
 import Header from "@/app/components/header";
 import WeatherOverview from "./components/main/data_section/weather_overview";
 import { WeatherResponse } from "./types/weather_response";
-import { Daily, ForecastResponse } from './types/forecast_response';
+import { Daily, ForecastResponse } from "./types/forecast_response";
 import Forecast from "./components/main/data_section/forecast";
 
 const Home = () => {
@@ -14,7 +14,7 @@ const Home = () => {
   const [weather, setWeather] = useState<any>(null);
   const [country, setCountry] = useState<string>("");
   const [overview, setOverview] = useState<any>(null);
-  const [forecast, setForecast] = useState<ForecastResponse | null>(null)
+  const [forecast, setForecast] = useState<ForecastResponse | null>(null);
 
   useEffect(() => {
     if (city) {
@@ -26,7 +26,7 @@ const Home = () => {
           )
             .then((res) => res.json())
             .then((forecastData: ForecastResponse) => {
-              setForecast(forecastData)
+              setForecast(forecastData);
 
               setWeather({
                 temp: data.main.temp,
@@ -57,15 +57,20 @@ const Home = () => {
   }, [city, unit]);
 
   return (
-    <div className="min-h-screen flex flex-col bg-gray-900">
+    <div className="min-h-screen flex flex-col bg-gray-900 ">
       <Header city={city} setCity={setCity} unit={unit} setUnit={setUnit} />
-      <br></br>
-      <main className="flex-grow">
-        {weather && (
-          <CurrentWeather weather={weather} city={city} country={country} />
-        )}
-        <br></br>
 
+      <main className="flex-grow m-3">
+        <div className="flex flex-row justify-between">
+          <div className="flex">
+            {weather && (
+              <CurrentWeather weather={weather} city={city} country={country} />
+            )}
+          </div>
+          <div className="flex flex-grow  justify-around ">
+            {forecast && <Forecast forecast={forecast.daily} />}
+          </div>
+        </div>
         {overview && (
           <WeatherOverview
             wind={overview.wind}
@@ -77,15 +82,7 @@ const Home = () => {
             feelsLike={overview.feelsLike}
           />
         )}
-
       </main>
-      <br></br>
-
-      <div className="col-span-1">
-          {forecast && <Forecast forecast={forecast.daily} />}
-        </div>
-        <br></br>
-
     </div>
   );
 };
