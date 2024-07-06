@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Footer from "./components/footer";
-import WeatherApp from "./components/main/data_section/current_weather";
+import WeatherApp from "./components/main/data_section/today_section/today_card";
 
 const inter = Inter({ subsets: ["latin"] });
 

@@ -8,22 +8,22 @@ interface ForecastProps {
 
 const Forecast: React.FC<ForecastProps> = ({ forecast }) => {
   return (
-    <div className="bg-gray-800 text-white p-6 rounded-lg shadow-md ">
-      <h2 className="text-2xl font-bold mb-4">Weekly Forecast</h2>
-      <div className="grid grid-cols-7 gap-4">
+
+      <div className=" flex flex-grow grid grid-cols-7 gap-4 px-5 py-10 text-l font-bold text-white  ">
         {forecast.slice(0, 7).map((item, index) => (
           <div key={index} className="bg-gray-700 p-4 rounded-lg text-center">
-            <p>{new Date(item.dt * 1000).toLocaleDateString('en-US', { weekday: 'short' })}</p>
+            <p className='text-xs'>{new Date(item.dt * 1000).toLocaleDateString('en-US', { weekday: 'short' })}</p>
+            <hr className="h-px mt-2 py-0.25  border-0 dark:bg-gray-500"></hr>
             <img
               src={`http://openweathermap.org/img/wn/${item.weather[0].icon}.png`}
               alt={item.weather[0].description}
               className="mx-auto"
             />
-            <p className="text-lg">{item.temp.day.toFixed(0)}°</p>
+            <p className="text-xl">{item.temp.day.toFixed(0)}°</p>
           </div>
         ))}
       </div>
-    </div>
+
   )
 }
 

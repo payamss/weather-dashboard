@@ -20,7 +20,7 @@ const WeatherOverview: React.FC<WeatherOverviewProps> = ({
   feelsLike,
 }) => {
   return (
-    <div className="grid grid-cols- gap-4 mt-4 text-xs">
+    <div className="grid grid-cols-3 gap-4 mt-4 text-xs">
       <div className="bg-gray-800 text-white p-4 rounded-lg shadow-md">
         <h3 className="font-bold">Wind Status</h3>
         <p>{wind} km/h</p>

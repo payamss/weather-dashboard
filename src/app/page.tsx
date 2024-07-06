@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import CurrentWeather from "./components/main/data_section/current_weather";
+import TodayCard from "./components/main/data_section/today_section/today_card";
 import Header from "@/app/components/header";
 import WeatherOverview from "./components/main/data_section/weather_overview";
 import { WeatherResponse } from "./types/weather_response";
@@ -9,12 +9,12 @@ import { Daily, ForecastResponse } from "./types/forecast_response";
 import Forecast from "./components/main/data_section/forecast";
 
 const Home = () => {
-  const [city, setCity] = useState<string>("Berlin");
+  const [city, setCity] = useState<string>("Frankfurt am Main");
   const [unit, setUnit] = useState<string>("metric");
-  const [weather, setWeather] = useState<any>(null);
+  const [weather, setWeather] = useState<CurrentWeather | null >(null);
   const [country, setCountry] = useState<string>("");
   const [overview, setOverview] = useState<any>(null);
-  const [forecast, setForecast] = useState<ForecastResponse | null>(null);
+  const [forecast, setForecast] = useState<DailyWeather[] | null>(null);
 
   useEffect(() => {
     if (city) {
@@ -22,27 +22,28 @@ const Home = () => {
         .then((response) => response.json())
         .then((data: WeatherResponse) => {
           fetch(
-            `/api/forecast?lat=${data.coord.lat}&lon=${data.coord.lon}&units=${unit}`
+            `/api/onecall?lat=${data.coord.lat}&lon=${data.coord.lon}&units=${unit}`
           )
             .then((res) => res.json())
-            .then((forecastData: ForecastResponse) => {
-              setForecast(forecastData);
+            .then((weatherData: IWeather) => {
+              setForecast(weatherData.daily);
+              setWeather(weatherData.current);
 
-              setWeather({
-                temp: data.main.temp,
-                description: data.weather[0].description,
-                icon: data.weather[0].icon,
-              });
-
-              setOverview({
-                wind: data.wind.speed,
-                humidity: data.main.humidity,
-                uvIndex: forecastData.daily[0].uvi,
-                visibility: data.visibility / 1000,
-                sunrise: new Date(data.sys.sunrise * 1000).toLocaleTimeString(),
-                sunset: new Date(data.sys.sunset * 1000).toLocaleTimeString(),
-                feelsLike: data.main.feels_like,
-              });
+              // setOverview({
+              //   wind: data.wind.speed,
+              //   humidity: data.main.humidity,
+              //   uvIndex: weatherData.current.uvi,
+              //   visibility: data.visibility / 1000,
+              //   sunrise: new Date(data.sys.sunrise * 1000).toLocaleTimeString(
+              //     [],
+              //     { hour: "2-digit", minute: "2-digit", hourCycle: "h24" }
+              //   ),
+              //   sunset: new Date(data.sys.sunset * 1000).toLocaleTimeString(
+              //     [],
+              //     { hour: "2-digit", minute: "2-digit", hourCycle: "h24" }
+              //   ),
+              //   feelsLike: data.main.feels_like,
+              // });
 
               setCountry(data.sys.country);
             })
@@ -63,15 +64,13 @@ const Home = () => {
       <main className="flex-grow m-3">
         <div className="flex flex-row justify-between">
           <div className="flex">
-            {weather && (
-              <CurrentWeather weather={weather} city={city} country={country} />
-            )}
+            {weather && TodayCard(weather,forecast![0].temp.max ,forecast![0].temp.min)  }
           </div>
           <div className="flex flex-grow  justify-around ">
-            {forecast && <Forecast forecast={forecast.daily} />}
+            {forecast && <Forecast forecast={forecast} />}
           </div>
         </div>
-        {overview && (
+        {/* {overview && (
           <WeatherOverview
             wind={overview.wind}
             humidity={overview.humidity}
@@ -81,7 +80,7 @@ const Home = () => {
             sunset={overview.sunset}
             feelsLike={overview.feelsLike}
           />
-        )}
+        )} */}
       </main>
     </div>
   );
