@@ -1,33 +1,38 @@
-import React from "react";
+import React, { useState } from "react";
 import { FaSearch } from "react-icons/fa";
+
 interface ICitySearch {
   city: string;
   setCity: (city: string) => void;
 }
 
-const handleCitySearch = () => {
-  let lat: number;
-  let long: number;
-  // fetchWeatherByCity(city)
-};
-
 const CitySearch: React.FC<ICitySearch> = ({ city, setCity }) => {
+  const [searchCity, setSearchCity] = useState(city);
+
+  const handleCitySearch = (e: React.FormEvent) => {
+    e.preventDefault();
+    setCity(searchCity);
+  };
+
   return (
-    <div className="flex sm:flex-row justify-center items-center w-full max-w-fit mx-auto ">
+    <form
+      onSubmit={handleCitySearch}
+      className="flex sm:flex-row justify-center items-center w-full max-w-fit mx-auto"
+    >
       <input
         type="text"
-        value={city}
-        onChange={(e) => setCity(e.target.value)}
-        className="w-full sm:flex-grow p-1 rounded-l-lg border-blue-600 focus:outline-none focus:ring-0 "
-        placeholder=" city"
+        value={searchCity}
+        onChange={(e) => setSearchCity(e.target.value)}
+        className="w-full sm:flex-grow p-1 rounded-l-lg border-blue-600 focus:outline-none focus:ring-0"
+        placeholder="city"
       />
       <button
-        onClick={handleCitySearch}
+        type="submit"
         className="p-2 bg-blue-600 rounded-r-lg text-white transform hover:scale-105"
       >
-       <FaSearch />
+        <FaSearch />
       </button>
-    </div>
+    </form>
   );
 };
 
