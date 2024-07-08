@@ -17,13 +17,13 @@ const CitySearch: React.FC<ICitySearch> = ({ city, setCity }) => {
   return (
     <form
       onSubmit={handleCitySearch}
-      className="flex sm:flex-row justify-center items-center w-full max-w-fit mx-auto"
+      className="flex flex-row justify-center items-center w-full max-w-fit mx-auto"
     >
       <input
         type="text"
         value={searchCity}
         onChange={(e) => setSearchCity(e.target.value)}
-        className="w-full sm:flex-grow p-1 rounded-l-lg border-blue-600 focus:outline-none focus:ring-0"
+        className="w-full flex-grow p-1 rounded-l-lg border-blue-600 focus:outline-none focus:ring-0 text-black"
         placeholder="city"
       />
       <button
