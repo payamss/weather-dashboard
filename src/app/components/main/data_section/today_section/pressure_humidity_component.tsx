@@ -12,19 +12,19 @@ const PrHuComponent: React.FC<PrHuComponentProps> = ({
   humidity,
 }) => {
   return (
-    <div className="flex flex-col-4 items-center text-center align-middle text-xs gap-2">
+    <div className="flex flex-col-4 items-center text-left align-baseline text-xs justify-between m-4">
       <div className="text-xl text-yellow-600">
         <PiGaugeBold />
       </div>
-      <div className="text-xs font-bold text-yellow-600">
-      {pressure} MPa</div>
+      <div className="text-xs">
+        {pressure} MPa</div>
 
       <div className="text-xl text-blue-700">
         <WiHumidity />
       </div>
-      <div className="text-xs font-bold text-blue-700">
+      <div className="text-xs">
 
-      {humidity}%</div>
+        {humidity}%</div>
     </div>
   );
 };
