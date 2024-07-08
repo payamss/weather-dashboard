@@ -11,12 +11,17 @@ import Forecast from "./components/main/data_section/forecast";
 const Home = () => {
   const [city, setCity] = useState<string>("Frankfurt am Main");
   const [unit, setUnit] = useState<string>("metric");
-  const [weather, setWeather] = useState<CurrentWeather | null >(null);
+  const [weather, setWeather] = useState<CurrentWeather | null>(null);
+  const [localWeather, setLocalWeather] = useState<IWeatherLocal | null>(null);
   const [country, setCountry] = useState<string>("");
   const [overview, setOverview] = useState<any>(null);
   const [forecast, setForecast] = useState<DailyWeather[] | null>(null);
 
   useEffect(() => {
+    fetch(`/api/local`).then((response) => response.json())
+      .then((localWeather: IWeatherLocal) => {
+        setLocalWeather(localWeather);
+      });
     if (city) {
       fetch(`/api/weather/${city}/?units=${unit}`)
         .then((response) => response.json())
@@ -64,7 +69,7 @@ const Home = () => {
       <main className="flex-grow m-3">
         <div className="flex flex-row justify-between">
           <div className="flex">
-            {weather && TodayCard(weather,forecast![0].temp.max ,forecast![0].temp.min)  }
+            {weather && TodayCard(weather, forecast![0].temp.max, forecast![0].temp.min, localWeather!)}
           </div>
           <div className="flex flex-grow  justify-around ">
             {forecast && <Forecast forecast={forecast} />}
