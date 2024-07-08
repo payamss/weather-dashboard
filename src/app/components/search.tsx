@@ -28,6 +28,7 @@ const CitySearch: React.FC<ICitySearch> = ({ city, setCity }) => {
       />
       <button
         type="submit"
+        aria-label="Submit"
         className="p-2 bg-blue-600 rounded-r-lg text-white transform hover:scale-105"
       >
         <FaSearch />
