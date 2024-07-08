@@ -23,7 +23,7 @@ const CitySearch: React.FC<ICitySearch> = ({ city, setCity }) => {
       />
       <button
         onClick={handleCitySearch}
-        className="p-2 bg-blue-600 rounded-r-lg text-white"
+        className="p-2 bg-blue-600 rounded-r-lg text-white transform hover:scale-105"
       >
        <FaSearch />
       </button>
