@@ -12,9 +12,8 @@
 
     "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
     "prettier.requireConfig": true,
-    "explorer.sortOrder": "default"
-
-    // "css.lint.unknownAtRules": "ignore",
+    "explorer.sortOrder": "default",
+    "css.lint.unknownAtRules": "ignore"
     // "scss.lint.unknownAtRules": "ignore",
     // "less.lint.unknownAtRules": "ignore",
     // "tailwindCSS.experimental.configFile": "./tailwind.config.js"
