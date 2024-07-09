@@ -10,7 +10,7 @@ import { FiSunrise, FiSunset } from 'react-icons/fi';
 
 function TodayCard(weather: CurrentWeather, high: number, low: number, local: IWeatherLocal) {
     return (
-        <div className="bg-gray-500 text-white p-2 rounded-3xl w-60">
+        <div className="bg-gray-500 text-white p-4 rounded-3xl w-80">
             <div className="flex justify-between items-center mb-2">
                 <div className="text-lg font-semibold">
                     {new Date(weather.dt * 1000).toLocaleDateString('en-US', {
@@ -23,6 +23,11 @@ function TodayCard(weather: CurrentWeather, high: number, low: number, local: IW
             </div>
             <hr></hr>
 
+            <div className="grid grid-cols-2 m-1">
+                <IconValueComponent icon={FaTemperatureHigh} value={local.Temperature.toString()} unit={local.Temperature_unit} iconColor="text-red-700" />
+                <IconValueComponent icon={WiHumidity} value={local.Humidity.toString()} unit={local.Humidity_unit} iconColor="text-blue-700" />
+            </div>
+            <hr></hr>
             <div className="flex items-center justify-between">
                 <div className="grid grid-row-2  text-xs">
                     <div className="grid grid-cols-2">
@@ -39,10 +44,7 @@ function TodayCard(weather: CurrentWeather, high: number, low: number, local: IW
                 <IconValueComponent icon={FaTemperatureHigh} value={high.toString()} unit="°" iconColor="text-orange-600" />
                 <IconValueComponent icon={FaTemperatureLow} value={low.toString()} unit="°" iconColor="text-pink-900" />
             </div>
-            <div className="grid grid-cols-2 m-1">
-                <IconValueComponent icon={FaTemperatureHigh} value={local.Temperature.toString()} unit={local.Temperature_unit} iconColor="text-red-700" />
-                <IconValueComponent icon={WiHumidity} value={local.Humidity.toString()} unit={local.Humidity_unit} iconColor="text-blue-700" />
-            </div>
+
             <div className="grid grid-cols-2 m-1">
                 <IconValueComponent icon={PiGaugeBold} value={weather.pressure.toString()} unit="Mpa" iconColor="text-yellow-600" />
                 <IconValueComponent icon={WiHumidity} value={weather.humidity.toString()} unit={local.Humidity_unit} iconColor="text-blue-700" />
