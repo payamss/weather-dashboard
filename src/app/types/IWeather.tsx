@@ -108,5 +108,3 @@ interface IWeather {
     daily: DailyWeather[];
     alerts: Alert[];
 }
-
-

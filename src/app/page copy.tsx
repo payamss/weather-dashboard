@@ -8,7 +8,6 @@
 // import { ForecastResponse } from './types/forecast_response'
 // import { WeatherResponse } from './types/weather_response'
 
-
 // const Home = () => {
 //   const [city, setCity] = useState<string>('')
 //   const [unit, setUnit] = useState<string>('metric')
@@ -149,7 +148,6 @@
 //                 humidity: 22,
 //                 sunrise: '8',
 //                 sunset: '5',
-
 
 //               }}
 //               city={currentWeather.name}

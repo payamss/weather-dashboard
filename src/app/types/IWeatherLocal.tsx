@@ -3,5 +3,4 @@ interface IWeatherLocal {
     Temperature_unit: string;
     Humidity: number;
     Humidity_unit: string;
-  }
-  
+}
