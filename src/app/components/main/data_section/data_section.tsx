@@ -1,12 +1,12 @@
 // components/DataSection.tsx
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 
 const DataSection: React.FC = () => {
     const [data, setData] = useState(null);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        fetch("/api/data")
+        fetch('/api/data')
             .then((response) => response.json())
             .then((data) => {
                 setData(data);

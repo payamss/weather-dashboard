@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { FaSearch } from "react-icons/fa";
+import React, { useState } from 'react';
+import { FaSearch } from 'react-icons/fa';
 
 interface ICitySearch {
     city: string;

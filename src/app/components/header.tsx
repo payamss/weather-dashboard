@@ -1,9 +1,8 @@
 // components/Header.tsx
-"use client";
+'use client';
 
-import { useState } from "react";
-import CitySearch from "./search";
-import UnitSelector from "./main/unit_selectore";
+import CitySearch from './search';
+import UnitSelector from './main/unit_selectore';
 
 interface HeaderProps {
     city: string;

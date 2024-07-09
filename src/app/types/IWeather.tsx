@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable no-unused-vars */
 interface Weather {
     id: number;
     main: string;
@@ -6,7 +8,7 @@ interface Weather {
 }
 
 interface Rain {
-    "1h": number;
+    '1h': number;
 }
 
 interface HourlyWeather {

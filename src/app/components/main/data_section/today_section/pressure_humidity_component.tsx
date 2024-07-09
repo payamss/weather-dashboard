@@ -1,7 +1,7 @@
 // components/WindComponent.tsx
-import React from "react";
-import { PiGaugeBold } from "react-icons/pi";
-import { WiHumidity } from "react-icons/wi";
+import React from 'react';
+import { PiGaugeBold } from 'react-icons/pi';
+import { WiHumidity } from 'react-icons/wi';
 interface PrHuComponentProps {
     pressure: number;
     humidity: number;

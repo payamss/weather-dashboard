@@ -1,5 +1,5 @@
-import React from "react";
-import { Daily } from "@/app/types/forecast_response";
+import React from 'react';
+import { Daily } from '@/app/types/forecast_response';
 
 interface ForecastProps {
     forecast: Daily[];
@@ -11,8 +11,8 @@ const Forecast: React.FC<ForecastProps> = ({ forecast }) => {
             {forecast.slice(0, 7).map((item, index) => (
                 <div key={index} className="bg-gray-700 p-4 rounded-lg text-center">
                     <p className="text-xs">
-                        {new Date(item.dt * 1000).toLocaleDateString("en-US", {
-                            weekday: "short",
+                        {new Date(item.dt * 1000).toLocaleDateString('en-US', {
+                            weekday: 'short',
                         })}
                     </p>
                     <hr className="h-px mt-2 py-0.25  border-0 dark:bg-gray-500"></hr>

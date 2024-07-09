@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 interface TemperatureGraphProps {
     temperatures: { time: string; temp: number }[];

@@ -1,18 +1,18 @@
-import React from "react";
-import Image from "next/image";
-import WindComponent from "./wind_component";
-import PrHuComponent from "./pressure_humidity_component";
-import SunComponent from "./sun_component";
-import HighLow from "./high_low_component";
-import Timer from "./timer";
+import React from 'react';
+import Image from 'next/image';
+import WindComponent from './wind_component';
+import PrHuComponent from './pressure_humidity_component';
+import SunComponent from './sun_component';
+import HighLow from './high_low_component';
+import Timer from './timer';
 
 function TodayCard(weather: CurrentWeather, high: number, low: number, local: IWeatherLocal) {
     return (
         <div className="bg-gray-500 text-white p-2 rounded-3xl w-60">
             <div className="flex justify-between items-center mb-2">
                 <div className="text-lg font-semibold">
-                    {new Date(weather.dt * 1000).toLocaleDateString("en-US", {
-                        weekday: "short",
+                    {new Date(weather.dt * 1000).toLocaleDateString('en-US', {
+                        weekday: 'short',
                     })}
                 </div>
                 <div className="text-lg font-bold">

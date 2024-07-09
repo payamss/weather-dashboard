@@ -1,7 +1,8 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 // src/types/node-mocks-http.d.ts
-declare module "node-mocks-http" {
-    import { IncomingHttpHeaders } from "http";
-    import { Readable } from "stream";
+declare module 'node-mocks-http' {
+    import { IncomingHttpHeaders } from 'http';
+    import { Readable } from 'stream';
 
     export interface MockRequestOptions {
         method?: string;

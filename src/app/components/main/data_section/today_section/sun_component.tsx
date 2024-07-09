@@ -1,6 +1,6 @@
 // components/WindComponent.tsx
-import React from "react";
-import { FiSunrise, FiSunset } from "react-icons/fi";
+import React from 'react';
+import { FiSunrise, FiSunset } from 'react-icons/fi';
 interface PrHuComponentProps {
     sunrise: number;
     sunset: number;
@@ -15,9 +15,9 @@ const SunComponent: React.FC<PrHuComponentProps> = ({ sunrise, sunset }) => {
 
             <div className=" text-xs ">
                 {new Date(sunrise * 1000).toLocaleTimeString([], {
-                    hour: "2-digit",
-                    minute: "2-digit",
-                    hourCycle: "h24",
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    hourCycle: 'h24',
                 })}
             </div>
             <div className=" text-xl text-pink-900">
@@ -25,9 +25,9 @@ const SunComponent: React.FC<PrHuComponentProps> = ({ sunrise, sunset }) => {
             </div>
             <div className="  text-xs ">
                 {new Date(sunset * 1000).toLocaleTimeString([], {
-                    hour: "2-digit",
-                    minute: "2-digit",
-                    hourCycle: "h24",
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    hourCycle: 'h24',
                 })}
             </div>
         </div>

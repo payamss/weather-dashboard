@@ -1,7 +1,7 @@
 // components/WindComponent.tsx
-import React from "react";
-import { FaLocationArrow } from "react-icons/fa";
-import { FaWind } from "react-icons/fa6";
+import React from 'react';
+import { FaLocationArrow } from 'react-icons/fa';
+import { FaWind } from 'react-icons/fa6';
 interface WindComponentProps {
     windSpeed: number;
     windDeg: number;

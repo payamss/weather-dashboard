@@ -1,24 +1,21 @@
-"use client";
+'use client';
 
-import { useState, useEffect } from "react";
-import TodayCard from "./components/main/data_section/today_section/today_card";
-import Header from "@/app/components/header";
-import WeatherOverview from "./components/main/data_section/weather_overview";
-import { WeatherResponse } from "./types/weather_response";
-import { Daily, ForecastResponse } from "./types/forecast_response";
-import Forecast from "./components/main/data_section/forecast";
+import { useState, useEffect } from 'react';
+import TodayCard from './components/main/data_section/today_section/today_card';
+import Header from '@/app/components/header';
+import { WeatherResponse } from './types/weather_response';
+import Forecast from './components/main/data_section/forecast';
 
 const Home = () => {
-    const [city, setCity] = useState<string>("Frankfurt am Main");
-    const [unit, setUnit] = useState<string>("metric");
+    const [city, setCity] = useState<string>('Frankfurt am Main');
+    const [unit, setUnit] = useState<string>('metric');
     const [weather, setWeather] = useState<CurrentWeather | null>(null);
     const [localWeather, setLocalWeather] = useState<IWeatherLocal | null>(null);
-    const [country, setCountry] = useState<string>("");
-    const [overview, setOverview] = useState<any>(null);
+    const [country, setCountry] = useState<string>('');
     const [forecast, setForecast] = useState<DailyWeather[] | null>(null);
-
+    console.log(country);
     useEffect(() => {
-        fetch(`/api/local`)
+        fetch('/api/local')
             .then((response) => response.json())
             .then((localWeather: IWeatherLocal) => {
                 setLocalWeather(localWeather);
@@ -51,9 +48,9 @@ const Home = () => {
 
                             setCountry(data.sys.country);
                         })
-                        .catch((error) => console.error("Error fetching weather c data:", error));
+                        .catch((error) => console.error('Error fetching weather c data:', error));
                 })
-                .catch((error) => console.error("Error fetching weather c data:", error));
+                .catch((error) => console.error('Error fetching weather c data:', error));
         }
     }, [city, unit]);
 

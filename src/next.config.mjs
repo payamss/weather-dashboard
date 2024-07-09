@@ -1,13 +1,16 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     reactStrictMode: true,
+    eslint: {
+        dirs: ['app'],
+    },
     images: {
         remotePatterns: [
             {
-                protocol: "https",
-                hostname: "openweathermap.org",
-                port: "",
-                pathname: "/**",
+                protocol: 'https',
+                hostname: 'openweathermap.org',
+                port: '',
+                pathname: '/**',
             },
         ],
     },
