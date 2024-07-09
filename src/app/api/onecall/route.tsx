@@ -12,7 +12,8 @@ export async function GET(request: Request) {
         return NextResponse.json({ error: "API key is required" }, { status: 400 });
     }
     () => console.log("first");
-
+    if (1 > 2) {
+    }
     if (!lat || !lon) {
         const errorResponse: ErrorResponse = {
             error: "Latitude and Longitude are required",
