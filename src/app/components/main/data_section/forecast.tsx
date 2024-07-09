@@ -8,7 +8,7 @@ interface ForecastProps {
 const Forecast: React.FC<ForecastProps> = ({ forecast }) => {
     return (
         <div className=" flex flex-grow grid grid-cols-7 gap-4 px-5 py-10 text-l font-bold text-white  ">
-            {forecast.slice(0, 7).map((item, index) => (
+            {forecast.slice(1, 7).map((item, index) => (
                 <div key={index} className="bg-gray-700 p-4 rounded-lg text-center">
                     <p className="text-xs">
                         {new Date(item.dt * 1000).toLocaleDateString('en-US', {
