@@ -1,10 +1,12 @@
 import React from 'react';
 import Image from 'next/image';
-import WindComponent from './wind_component';
-import PrHuComponent from './pressure_humidity_component';
-import SunComponent from './sun_component';
-import HighLow from './high_low_component';
 import Timer from './timer';
+import IconValueComponent from './icon_value_component';
+import { FaTemperatureHigh, FaTemperatureLow } from 'react-icons/fa';
+import { WiHumidity } from 'react-icons/wi';
+import { PiGaugeBold } from 'react-icons/pi';
+import { FaLocationArrow, FaWind } from 'react-icons/fa6';
+import { FiSunrise, FiSunset } from 'react-icons/fi';
 
 function TodayCard(weather: CurrentWeather, high: number, low: number, local: IWeatherLocal) {
     return (
@@ -25,10 +27,6 @@ function TodayCard(weather: CurrentWeather, high: number, low: number, local: IW
                 <div className="grid grid-row-2  text-xs">
                     <div className="grid grid-cols-2">
                         <div className="text-5xl font-bold w-auto">{weather.temp.toFixed(1)}° </div>
-                        <div className="text-sm font-bold">
-                            ({local.Temperature}
-                            {local.Temperature_unit})
-                        </div>
                     </div>
                     <div className="text-xs">Feel: {weather.feels_like.toFixed(1)}°</div>
                 </div>
@@ -38,17 +36,42 @@ function TodayCard(weather: CurrentWeather, high: number, low: number, local: IW
                 </div>
             </div>
             <div className="grid grid-cols-2 m-1">
-                <div className=""></div>
-                <div className="">
-                    {local.Humidity}
-                    {local.Humidity_unit}
-                </div>
+                <IconValueComponent icon={FaTemperatureHigh} value={high.toString()} unit="°" iconColor="text-orange-600" />
+                <IconValueComponent icon={FaTemperatureLow} value={low.toString()} unit="°" iconColor="text-pink-900" />
             </div>
-            <div className="py-2">
-                <HighLow h={high} l={low} />
-                <WindComponent windSpeed={weather.wind_speed} windDeg={weather.wind_deg} />
-                <PrHuComponent pressure={weather.pressure} humidity={weather.humidity} />
-                <SunComponent sunrise={weather.sunrise} sunset={weather.sunset} />
+            <div className="grid grid-cols-2 m-1">
+                <IconValueComponent icon={FaTemperatureHigh} value={local.Temperature.toString()} unit={local.Temperature_unit} iconColor="text-red-700" />
+                <IconValueComponent icon={WiHumidity} value={local.Humidity.toString()} unit={local.Humidity_unit} iconColor="text-blue-700" />
+            </div>
+            <div className="grid grid-cols-2 m-1">
+                <IconValueComponent icon={PiGaugeBold} value={weather.pressure.toString()} unit="Mpa" iconColor="text-yellow-600" />
+                <IconValueComponent icon={WiHumidity} value={weather.humidity.toString()} unit={local.Humidity_unit} iconColor="text-blue-700" />
+            </div>
+            <div className="grid grid-cols-2 m-1">
+                <IconValueComponent icon={FaWind} value={weather.wind_speed.toString()} unit="km/h" iconColor="text-red-700" />
+                <IconValueComponent icon={FaLocationArrow} value={weather.wind_deg.toString()} unit="°" iconColor="text-blue-700" iconStyle={{ transform: `rotate(${weather.wind_deg - 45}deg)` }} />
+            </div>
+            <div className="grid grid-cols-2 m-1">
+                <IconValueComponent
+                    icon={FiSunrise}
+                    value={new Date(weather.sunrise * 1000).toLocaleTimeString([], {
+                        hour: '2-digit',
+                        minute: '2-digit',
+                        hourCycle: 'h24',
+                    })}
+                    unit=""
+                    iconColor="text-orange-600"
+                />
+                <IconValueComponent
+                    icon={FiSunset}
+                    value={new Date(weather.sunset * 1000).toLocaleTimeString([], {
+                        hour: '2-digit',
+                        minute: '2-digit',
+                        hourCycle: 'h24',
+                    })}
+                    unit=""
+                    iconColor="text-pink-900"
+                />
             </div>
         </div>
     );
