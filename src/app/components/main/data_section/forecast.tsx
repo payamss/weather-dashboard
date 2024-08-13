@@ -18,7 +18,7 @@ const Forecast: React.FC<ForecastProps> = ({ forecast }) => {
                     </p>
                     <hr className='py-0.25 mt-2 h-px border-0 dark:bg-gray-500'></hr>
 
-                    <Image src={`http://openweathermap.org/img/wn/${item.weather[0].icon}.png`} alt={item.weather[0].description} width={50} height={50} />
+                    <Image src={`https://openweathermap.org/img/wn/${item.weather[0].icon}.png`} alt={item.weather[0].description} width={50} height={50} />
 
                     <div className='text-xl font-bold'>{item.temp.day.toFixed(0)}°</div>
                     <div className='text-xs'>
