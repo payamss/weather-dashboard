@@ -8,9 +8,9 @@ interface ForecastProps {
 
 const Forecast: React.FC<ForecastProps> = ({ forecast }) => {
     return (
-        <div className='text-l grid grid-cols-3 gap-4 px-5 py-20 text-white sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-7'>
+        <div className='grid grid-cols-3 items-center justify-center gap-4 text-white sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-7'>
             {forecast.slice(1, 7).map((item, index) => (
-                <div key={index} className='rounded-lg bg-gray-700 p-4 text-center'>
+                <div key={index} className='max-h-full rounded-lg bg-gray-700 p-3 text-center'>
                     <p className='text-xs'>
                         {new Date(item.dt * 1000).toLocaleDateString('en-US', {
                             weekday: 'short',
@@ -20,7 +20,7 @@ const Forecast: React.FC<ForecastProps> = ({ forecast }) => {
 
                     <Image src={`https://openweathermap.org/img/wn/${item.weather[0].icon}.png`} alt={item.weather[0].description} width={50} height={50} />
 
-                    <div className='text-xl font-bold'>{item.temp.day.toFixed(0)}°</div>
+                    <div className='mt-2 text-lg font-bold'>{item.temp.day.toFixed(0)}°</div>
                     <div className='text-xs'>
                         ({item.temp.min.toFixed(0)}/{item.temp.max.toFixed(0)})
                     </div>
