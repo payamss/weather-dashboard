@@ -7,7 +7,8 @@ import { WiHumidity } from 'react-icons/wi';
 import { PiGaugeBold } from 'react-icons/pi';
 import { FaLocationArrow, FaWind } from 'react-icons/fa6';
 import { FiSunrise, FiSunset } from 'react-icons/fi';
-
+import { TbUvIndex } from 'react-icons/tb';
+import { MdVisibility } from 'react-icons/md';
 function TodayCard(weather: CurrentWeather, high: number, low: number, local: IWeatherLocal) {
     return (
         <div className='w-80 rounded-3xl bg-gray-500 p-4 text-white'>
@@ -41,8 +42,8 @@ function TodayCard(weather: CurrentWeather, high: number, low: number, local: IW
                 </div>
             </div>
             <div className='m-1 grid grid-cols-2'>
-                <IconValueComponent icon={FaTemperatureHigh} value={high.toString()} unit='°' iconColor='text-green-300' />
-                <IconValueComponent icon={FaTemperatureLow} value={low.toString()} unit='°' iconColor='text-red-400' />
+                <IconValueComponent icon={FaTemperatureLow} value={low.toString()} unit='°' iconColor='text-green-300' />
+                <IconValueComponent icon={FaTemperatureHigh} value={high.toString()} unit='°' iconColor='text-red-400' />
             </div>
 
             <div className='m-1 grid grid-cols-2'>
@@ -52,6 +53,10 @@ function TodayCard(weather: CurrentWeather, high: number, low: number, local: IW
             <div className='m-1 grid grid-cols-2'>
                 <IconValueComponent icon={FaWind} value={weather.wind_speed.toString()} unit='km/h' iconColor='text-blue-700' />
                 <IconValueComponent icon={FaLocationArrow} value={weather.wind_deg.toString()} unit='°' iconColor='text-blue-700' iconStyle={{ transform: `rotate(${weather.wind_deg - 45}deg)` }} />
+            </div>
+            <div className='m-1 grid grid-cols-2'>
+                <IconValueComponent icon={TbUvIndex} value={weather.uvi.toString()} unit='' iconColor='text-orange-700' />
+                <IconValueComponent icon={MdVisibility} value={(weather.visibility / 1000).toString()} unit=' km' iconColor='text-blue-700' />
             </div>
             <div className='m-1 grid grid-cols-2'>
                 <IconValueComponent
