@@ -12,6 +12,7 @@ const Home = () => {
     const [weather, setWeather] = useState<CurrentWeather | null>(null);
     const [localWeather, setLocalWeather] = useState<IWeatherLocal | null>(null);
     const [country, setCountry] = useState<string>('');
+    const [cityId, setId] = useState<number>();
     const [forecast, setForecast] = useState<DailyWeather[] | null>(null);
     console.log(country);
     useEffect(() => {
@@ -30,6 +31,7 @@ const Home = () => {
                             setForecast(weatherData.daily);
                             setWeather(weatherData.current);
                             setCountry(data.sys.country);
+                            setId(data.id);
                         })
                         .catch((error) => console.error('Error fetching weather c data:', error));
                 })
@@ -43,7 +45,9 @@ const Home = () => {
 
             <main className='m-3 justify-center align-middle'>
                 <div className='flex flex-col justify-center md:flex-row'>
-                    <div className='mx-5 my-5 flex justify-center'>{weather && TodayCard(weather, forecast![0].temp.max, forecast![0].temp.min, localWeather!)}</div>
+                    <a href={`https://openweathermap.org/city/${cityId}`}>
+                        <div className='mx-5 my-5 flex justify-center'>{weather && TodayCard(weather, forecast![0].temp.max, forecast![0].temp.min, localWeather!)}</div>
+                    </a>
                     <div className='flex flex-grow justify-around'>{forecast && <Forecast forecast={forecast} />}</div>
                 </div>
             </main>
