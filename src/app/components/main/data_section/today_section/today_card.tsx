@@ -25,8 +25,8 @@ function TodayCard(weather: CurrentWeather, high: number, low: number, local: IW
             <hr></hr>
 
             <div className='m-1 grid grid-cols-2'>
-                <IconValueComponent icon={FaTemperatureHigh} value={local.Temperature.toString()} unit={local.Temperature_unit} iconColor='text-red-700' />
-                <IconValueComponent icon={WiHumidity} value={local.Humidity.toString()} unit={local.Humidity_unit} iconColor='text-blue-700' />
+                <IconValueComponent icon={FaTemperatureHigh} value={local.Temperature.toFixed(1).toString()} unit={local.Temperature_unit} iconColor='text-red-700' />
+                <IconValueComponent icon={WiHumidity} value={local.Humidity.toFixed(0).toString()} unit={local.Humidity_unit} iconColor='text-blue-700' />
             </div>
             <hr></hr>
             <div className='flex items-center justify-between'>

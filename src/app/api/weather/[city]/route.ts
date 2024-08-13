@@ -16,7 +16,6 @@ export async function GET(request: Request, { params }: { params: { city: string
 
     const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${units}&appid=${apiKey}`);
     const data = await response.json();
-    console.log('openweather:', data);
     if (response.ok) {
         const weatherData: WeatherResponse = data;
         return NextResponse.json(weatherData);

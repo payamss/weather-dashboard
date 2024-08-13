@@ -5,7 +5,7 @@ import { NextResponse } from 'next/server';
 export async function GET() {
     const url: string = 'http://192.168.178.56/data';
 
-    const response = await fetch(url);
+    const response = await fetch(url, { cache: 'no-store' });
     const res = await response.json();
 
     if (response.ok) {
