@@ -41,9 +41,9 @@ const Home = () => {
         <div className='flex min-h-screen flex-col bg-gray-900'>
             <Header city={city} setCity={setCity} unit={unit} setUnit={setUnit} />
 
-            <main className='m-3 flex-grow'>
-                <div className='flex flex-row justify-between'>
-                    <div className='flex'>{weather && TodayCard(weather, forecast![0].temp.max, forecast![0].temp.min, localWeather!)}</div>
+            <main className='m-3 justify-center align-middle'>
+                <div className='flex flex-col justify-center md:flex-row'>
+                    <div className='mx-5 my-5 flex justify-center'>{weather && TodayCard(weather, forecast![0].temp.max, forecast![0].temp.min, localWeather!)}</div>
                     <div className='flex flex-grow justify-around'>{forecast && <Forecast forecast={forecast} />}</div>
                 </div>
             </main>

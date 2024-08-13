@@ -7,7 +7,7 @@ interface ForecastProps {
 
 const Forecast: React.FC<ForecastProps> = ({ forecast }) => {
     return (
-        <div className='text-l flex grid flex-grow grid-cols-7 gap-4 px-5 py-10 font-bold text-white'>
+        <div className='text-l grid grid-cols-3 gap-4 px-5 py-20 font-bold text-white sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-7'>
             {forecast.slice(1, 7).map((item, index) => (
                 <div key={index} className='rounded-lg bg-gray-700 p-4 text-center'>
                     <p className='text-xs'>
