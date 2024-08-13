@@ -10,50 +10,50 @@ import { FiSunrise, FiSunset } from 'react-icons/fi';
 
 function TodayCard(weather: CurrentWeather, high: number, low: number, local: IWeatherLocal) {
     return (
-        <div className="bg-gray-500 text-white p-4 rounded-3xl w-80">
-            <div className="flex justify-between items-center mb-2">
-                <div className="text-lg font-semibold">
+        <div className='w-80 rounded-3xl bg-gray-500 p-4 text-white'>
+            <div className='mb-2 flex items-center justify-between'>
+                <div className='text-lg font-semibold'>
                     {new Date(weather.dt * 1000).toLocaleDateString('en-US', {
                         weekday: 'short',
                     })}
                 </div>
-                <div className="text-lg font-bold">
+                <div className='text-lg font-bold'>
                     <Timer />
                 </div>
             </div>
             <hr></hr>
 
-            <div className="grid grid-cols-2 m-1">
-                <IconValueComponent icon={FaTemperatureHigh} value={local.Temperature.toString()} unit={local.Temperature_unit} iconColor="text-red-700" />
-                <IconValueComponent icon={WiHumidity} value={local.Humidity.toString()} unit={local.Humidity_unit} iconColor="text-blue-700" />
+            <div className='m-1 grid grid-cols-2'>
+                <IconValueComponent icon={FaTemperatureHigh} value={local.Temperature.toString()} unit={local.Temperature_unit} iconColor='text-red-700' />
+                <IconValueComponent icon={WiHumidity} value={local.Humidity.toString()} unit={local.Humidity_unit} iconColor='text-blue-700' />
             </div>
             <hr></hr>
-            <div className="flex items-center justify-between">
-                <div className="grid grid-row-2  text-xs">
-                    <div className="grid grid-cols-2">
-                        <div className="text-5xl font-bold w-auto">{weather.temp.toFixed(1)}° </div>
+            <div className='flex items-center justify-between'>
+                <div className='grid-row-2 grid text-xs'>
+                    <div className='grid grid-cols-2'>
+                        <div className='w-auto text-5xl font-bold'>{weather.temp.toFixed(1)}° </div>
                     </div>
-                    <div className="text-xs">Feel: {weather.feels_like.toFixed(1)}°</div>
+                    <div className='text-xs'>Feel: {weather.feels_like.toFixed(1)}°</div>
                 </div>
-                <div className="grid grid-row-2 text-xs align-middle text-center">
+                <div className='grid-row-2 grid text-center align-middle text-xs'>
                     <Image src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@4x.png`} alt={weather.weather[0].description} width={50} height={50} />
-                    <div className="text-xs">{weather.weather[0].description}</div>
+                    <div className='text-xs'>{weather.weather[0].description}</div>
                 </div>
             </div>
-            <div className="grid grid-cols-2 m-1">
-                <IconValueComponent icon={FaTemperatureHigh} value={high.toString()} unit="°" iconColor="text-orange-600" />
-                <IconValueComponent icon={FaTemperatureLow} value={low.toString()} unit="°" iconColor="text-pink-900" />
+            <div className='m-1 grid grid-cols-2'>
+                <IconValueComponent icon={FaTemperatureHigh} value={high.toString()} unit='°' iconColor='text-green-300' />
+                <IconValueComponent icon={FaTemperatureLow} value={low.toString()} unit='°' iconColor='text-red-400' />
             </div>
 
-            <div className="grid grid-cols-2 m-1">
-                <IconValueComponent icon={PiGaugeBold} value={weather.pressure.toString()} unit="Mpa" iconColor="text-yellow-600" />
-                <IconValueComponent icon={WiHumidity} value={weather.humidity.toString()} unit={local.Humidity_unit} iconColor="text-blue-700" />
+            <div className='m-1 grid grid-cols-2'>
+                <IconValueComponent icon={PiGaugeBold} value={weather.pressure.toString()} unit='Mpa' iconColor='text-blue-700' />
+                <IconValueComponent icon={WiHumidity} value={weather.humidity.toString()} unit={local.Humidity_unit} iconColor='text-blue-700' />
             </div>
-            <div className="grid grid-cols-2 m-1">
-                <IconValueComponent icon={FaWind} value={weather.wind_speed.toString()} unit="km/h" iconColor="text-red-700" />
-                <IconValueComponent icon={FaLocationArrow} value={weather.wind_deg.toString()} unit="°" iconColor="text-blue-700" iconStyle={{ transform: `rotate(${weather.wind_deg - 45}deg)` }} />
+            <div className='m-1 grid grid-cols-2'>
+                <IconValueComponent icon={FaWind} value={weather.wind_speed.toString()} unit='km/h' iconColor='text-blue-700' />
+                <IconValueComponent icon={FaLocationArrow} value={weather.wind_deg.toString()} unit='°' iconColor='text-blue-700' iconStyle={{ transform: `rotate(${weather.wind_deg - 45}deg)` }} />
             </div>
-            <div className="grid grid-cols-2 m-1">
+            <div className='m-1 grid grid-cols-2'>
                 <IconValueComponent
                     icon={FiSunrise}
                     value={new Date(weather.sunrise * 1000).toLocaleTimeString([], {
@@ -61,8 +61,8 @@ function TodayCard(weather: CurrentWeather, high: number, low: number, local: IW
                         minute: '2-digit',
                         hourCycle: 'h24',
                     })}
-                    unit=""
-                    iconColor="text-orange-600"
+                    unit=''
+                    iconColor='text-yellow-200'
                 />
                 <IconValueComponent
                     icon={FiSunset}
@@ -71,8 +71,8 @@ function TodayCard(weather: CurrentWeather, high: number, low: number, local: IW
                         minute: '2-digit',
                         hourCycle: 'h24',
                     })}
-                    unit=""
-                    iconColor="text-pink-900"
+                    unit=''
+                    iconColor='text-yellow-200'
                 />
             </div>
         </div>

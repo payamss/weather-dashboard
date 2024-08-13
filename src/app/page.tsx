@@ -29,23 +29,6 @@ const Home = () => {
                         .then((weatherData: IWeather) => {
                             setForecast(weatherData.daily);
                             setWeather(weatherData.current);
-
-                            // setOverview({
-                            //   wind: data.wind.speed,
-                            //   humidity: data.main.humidity,
-                            //   uvIndex: weatherData.current.uvi,
-                            //   visibility: data.visibility / 1000,
-                            //   sunrise: new Date(data.sys.sunrise * 1000).toLocaleTimeString(
-                            //     [],
-                            //     { hour: "2-digit", minute: "2-digit", hourCycle: "h24" }
-                            //   ),
-                            //   sunset: new Date(data.sys.sunset * 1000).toLocaleTimeString(
-                            //     [],
-                            //     { hour: "2-digit", minute: "2-digit", hourCycle: "h24" }
-                            //   ),
-                            //   feelsLike: data.main.feels_like,
-                            // });
-
                             setCountry(data.sys.country);
                         })
                         .catch((error) => console.error('Error fetching weather c data:', error));
@@ -55,25 +38,14 @@ const Home = () => {
     }, [city, unit]);
 
     return (
-        <div className="min-h-screen flex flex-col bg-gray-900 ">
+        <div className='flex min-h-screen flex-col bg-gray-900'>
             <Header city={city} setCity={setCity} unit={unit} setUnit={setUnit} />
 
-            <main className="flex-grow m-3">
-                <div className="flex flex-row justify-between">
-                    <div className="flex">{weather && TodayCard(weather, forecast![0].temp.max, forecast![0].temp.min, localWeather!)}</div>
-                    <div className="flex flex-grow  justify-around ">{forecast && <Forecast forecast={forecast} />}</div>
+            <main className='m-3 flex-grow'>
+                <div className='flex flex-row justify-between'>
+                    <div className='flex'>{weather && TodayCard(weather, forecast![0].temp.max, forecast![0].temp.min, localWeather!)}</div>
+                    <div className='flex flex-grow justify-around'>{forecast && <Forecast forecast={forecast} />}</div>
                 </div>
-                {/* {overview && (
-          <WeatherOverview
-            wind={overview.wind}
-            humidity={overview.humidity}
-            uvIndex={overview.uvIndex}
-            visibility={overview.visibility}
-            sunrise={overview.sunrise}
-            sunset={overview.sunset}
-            feelsLike={overview.feelsLike}
-          />
-        )} */}
             </main>
         </div>
     );

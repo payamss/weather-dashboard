@@ -7,7 +7,7 @@ interface WindComponentProps {
 
 const WindComponent: React.FC<WindComponentProps> = ({ windDeg }) => {
     return (
-        <div className="relative flex items-center justify-center text-red-800 " style={{ transform: `rotate(${windDeg - 45}deg)` }}>
+        <div className='relative flex items-center justify-center text-red-800' style={{ transform: `rotate(${windDeg - 45}deg)` }}>
             <FaLocationArrow />
         </div>
     );

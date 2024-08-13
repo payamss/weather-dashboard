@@ -6,11 +6,11 @@ interface TemperatureGraphProps {
 
 const TemperatureGraph: React.FC<TemperatureGraphProps> = ({ temperatures }) => {
     return (
-        <div className="bg-gray-800 text-white p-6 rounded-lg shadow-md mt-4">
-            <h3 className="font-bold">Temperature</h3>
-            <div className="mt-4">
+        <div className='mt-4 rounded-lg bg-gray-800 p-6 text-white shadow-md'>
+            <h3 className='font-bold'>Temperature</h3>
+            <div className='mt-4'>
                 {temperatures.map((item, index) => (
-                    <div key={index} className="flex justify-between">
+                    <div key={index} className='flex justify-between'>
                         <span>{item.time}</span>
                         <span>{item.temp}°C</span>
                     </div>

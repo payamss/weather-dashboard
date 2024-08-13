@@ -15,15 +15,15 @@ const CitySearch: React.FC<ICitySearch> = ({ city, setCity }) => {
     };
 
     return (
-        <form onSubmit={handleCitySearch} className="flex flex-row justify-center items-center w-full max-w-fit mx-auto">
+        <form onSubmit={handleCitySearch} className='mx-auto flex w-full max-w-fit flex-row items-center justify-center'>
             <input
-                type="text"
+                type='text'
                 value={searchCity}
                 onChange={(e) => setSearchCity(e.target.value)}
-                className="w-full flex-grow p-1 rounded-l-lg border-blue-600 focus:outline-none focus:ring-0 text-black"
-                placeholder="city"
+                className='w-full flex-grow rounded-l-lg border-blue-600 p-1 text-black focus:outline-none focus:ring-0'
+                placeholder='city'
             />
-            <button type="submit" aria-label="Submit" className="p-2 bg-blue-600 rounded-r-lg text-white transform hover:scale-105">
+            <button type='submit' aria-label='Submit' className='transform rounded-r-lg bg-blue-600 p-2 text-white hover:scale-105'>
                 <FaSearch />
             </button>
         </form>

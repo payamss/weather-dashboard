@@ -13,9 +13,9 @@ interface HeaderProps {
 
 export default function Header({ city, setCity, unit, setUnit }: HeaderProps) {
     return (
-        <header className="w-full bg-slate-800 shadow-md py-3 px-3 flex items-center justify-between">
-            <div className="text-white font-bold">Weather</div>
-            <div className="flex-grow mx-4">
+        <header className='flex w-full items-center justify-between bg-slate-800 px-3 py-3 shadow-md'>
+            <div className='font-bold text-white'>Weather</div>
+            <div className='mx-4 flex-grow'>
                 <CitySearch city={city} setCity={setCity} />
             </div>
             <div>

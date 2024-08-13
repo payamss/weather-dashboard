@@ -9,16 +9,16 @@ interface PrHuComponentProps {
 
 const PrHuComponent: React.FC<PrHuComponentProps> = ({ pressure, humidity }) => {
     return (
-        <div className="flex flex-col-4 items-center text-left align-baseline text-xs justify-between m-4">
-            <div className="text-xl text-yellow-600">
+        <div className='flex-col-4 m-4 flex items-center justify-between text-left align-baseline text-xs'>
+            <div className='text-xl text-yellow-600'>
                 <PiGaugeBold />
             </div>
-            <div className="text-xs">{pressure} MPa</div>
+            <div className='text-xs'>{pressure} MPa</div>
 
-            <div className="text-xl text-blue-700">
+            <div className='text-xl text-blue-700'>
                 <WiHumidity />
             </div>
-            <div className="text-xs">{humidity}%</div>
+            <div className='text-xs'>{humidity}%</div>
         </div>
     );
 };

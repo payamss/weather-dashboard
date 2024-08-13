@@ -12,7 +12,7 @@ interface IconValueProps {
 
 const IconValueComponent: React.FC<IconValueProps> = ({ icon: Icon, value, unit, iconColor, textColor, iconStyle }) => {
     return (
-        <div className="flex flex-col-2 items-center text-center align-middle text-xs justify-start gap-3 m-1">
+        <div className='flex-col-2 m-1 flex items-center justify-start gap-3 text-center align-middle text-xs'>
             <div className={`text-2xl ${iconColor}`} style={iconStyle}>
                 <Icon />
             </div>

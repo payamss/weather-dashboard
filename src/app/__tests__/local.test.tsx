@@ -30,7 +30,11 @@ describe('GET /api/local/', () => {
     });
 
     it('should return an error response if fetch fails', async () => {
-        (fetch as jest.MockedFunction<typeof fetch>).mockResolvedValue(new Response(JSON.stringify({ message: 'Internal Server Error' }), { status: 500 }));
+        (fetch as jest.MockedFunction<typeof fetch>).mockResolvedValue(
+            new Response(JSON.stringify({ message: 'Internal Server Error' }), {
+                status: 500,
+            })
+        );
 
         const response = await GET();
         const json = await response.json();

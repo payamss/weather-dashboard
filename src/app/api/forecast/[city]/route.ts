@@ -13,7 +13,7 @@ export async function GET(request: Request, { params }: { params: { city: string
         };
         return NextResponse.json(errorResponse, { status: 400 });
     }
-
+    // BUG: Bugasd asda
     const response = await fetch(`https://api.openweathermap.org/data/2.5/onecall?q=${city}&units=${units}&appid=${apiKey}`);
     const data = await response.json();
 

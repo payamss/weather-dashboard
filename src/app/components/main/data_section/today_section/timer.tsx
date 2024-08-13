@@ -8,7 +8,7 @@ const Timer: React.FC = () => {
         return () => clearInterval(timer);
     }, []);
     return (
-        <div className="flex flex-col-4 items-center text-center align-middle text-xs gap-2">
+        <div className='flex-col-4 flex items-center gap-2 text-center align-middle text-xs'>
             <p>
                 {currentTime.toLocaleTimeString([], {
                     hour: '2-digit',
