@@ -1,10 +1,18 @@
 // app/layout.tsx or your main layout file
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Outfit, Source_Sans_3 } from 'next/font/google';
 import './globals.css';
 import Footer from './components/footer';
 
-const inter = Inter({ subsets: ['latin'] });
+const outfit = Outfit({
+    subsets: ['latin'],
+    variable: '--font-outfit',
+});
+
+const sourceSans = Source_Sans_3({
+    subsets: ['latin'],
+    variable: '--font-source-sans',
+});
 
 export const metadata: Metadata = {
     title: 'Weather | Shariat.de',
@@ -18,7 +26,7 @@ export default function RootLayout({
 }>) {
     return (
         <html lang='en'>
-            <body className={`${inter.className} flex min-h-screen flex-col bg-gray-900`}>
+            <body className={`${outfit.variable} ${sourceSans.variable} flex min-h-screen flex-col`}>
                 {/* <Header /> */}
                 <main className='flex-grow'>{children}</main>
                 <Footer />

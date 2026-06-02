@@ -7,15 +7,15 @@ interface UnitSelectorProps {
 
 const UnitSelector: React.FC<UnitSelectorProps> = ({ unit, setUnit }) => {
     return (
-        <div className='flex justify-start text-red-600'>
+        <div className='flex justify-start rounded-xl border border-slate-300/20 bg-slate-950/55 p-1 text-red-600'>
             <button
-                className={`transform rounded-l-lg px-2 py-1 duration-300 ease-linear hover:scale-105 ${unit === 'metric' ? 'bg-blue-600 text-white' : 'bg-gray-200'}`}
+                className={`rounded-lg px-3 py-1.5 text-sm font-semibold transition duration-200 ${unit === 'metric' ? 'bg-gradient-to-r from-sky-500 to-blue-600 text-white shadow-md shadow-sky-900/30' : 'text-slate-300 hover:bg-slate-800/70'}`}
                 onClick={() => setUnit('metric')}
             >
                 °C
             </button>
             <button
-                className={`transform rounded-r-lg px-2 py-1 duration-300 ease-linear hover:scale-105 ${unit === 'imperial' ? 'bg-blue-600 text-white' : 'bg-gray-200'}`}
+                className={`rounded-lg px-3 py-1.5 text-sm font-semibold transition duration-200 ${unit === 'imperial' ? 'bg-gradient-to-r from-sky-500 to-blue-600 text-white shadow-md shadow-sky-900/30' : 'text-slate-300 hover:bg-slate-800/70'}`}
                 onClick={() => setUnit('imperial')}
             >
                 °F

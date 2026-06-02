@@ -84,22 +84,22 @@ const Home = () => {
     }, [fetchWeatherData]);
 
     return (
-        <div className='flex min-h-screen flex-col bg-gray-900'>
+        <div className='flex min-h-screen flex-col font-[var(--font-source-sans)] text-slate-100'>
             <Header city={city} setCity={setCity} unit={unit} setUnit={setUnit} />
 
-            <main className='m-3 justify-center align-middle'>
-                {weatherError && <div className='mx-5 my-2 rounded-lg bg-yellow-700 p-3 text-sm text-white'>OpenWeather unavailable: {weatherError}. Showing local sensor data when available.</div>}
-                {localError && <div className='mx-5 my-2 rounded-lg bg-red-700 p-3 text-sm text-white'>Local sensor unavailable: {localError}</div>}
-                <div className='flex flex-col justify-center md:flex-row'>
-                    <div className='mx-5 my-5 flex justify-center'>
-                        {isLocalLoading && <div className='w-80 rounded-3xl bg-gray-700 p-4 text-center text-white'>Loading local sensor...</div>}
-                        {!isLocalLoading && localWeather && <LocalSensorCard local={localWeather} />}
+            <main className='mx-3 mb-6 mt-4 justify-center align-middle'>
+                {weatherError && <div className='glass-panel mx-2 my-2 border-yellow-300/35 bg-yellow-900/40 p-3 text-sm text-yellow-100'>OpenWeather unavailable: {weatherError}. Showing local sensor data when available.</div>}
+                {localError && <div className='glass-panel mx-2 my-2 border-red-300/35 bg-red-900/40 p-3 text-sm text-red-100'>Local sensor unavailable: {localError}</div>}
+                <div className='flex flex-col justify-center gap-2 xl:flex-row'>
+                    <div className='mx-2 my-3 flex items-start justify-center'>
+                        {isLocalLoading && <div className='glass-panel w-80 p-4 text-center text-white'>Loading local sensor...</div>}
+                        {!isLocalLoading && localWeather && <LocalSensorCard local={localWeather} unit={unit} />}
                     </div>
                     <a href={`https://openweathermap.org/city/${cityId}`} target='_blank' rel='noopener noreferrer'>
-                        <div className='mx-5 my-5 flex justify-center'>{weather && forecast?.[0] && TodayCard(weather, forecast[0].temp.max, forecast[0].temp.min)}</div>
+                        <div className='mx-2 my-3 flex items-start justify-center'>{weather && forecast?.[0] && TodayCard(weather, forecast[0].temp.max, forecast[0].temp.min)}</div>
                     </a>
-                    <div className='flex flex-grow justify-around'>
-                        {isWeatherLoading ? <div className='rounded-lg bg-gray-700 p-4 text-white'>Loading weather forecast...</div> : forecast && <Forecast forecast={forecast} />}
+                    <div className='mx-2 my-3 flex flex-grow items-start justify-around'>
+                        {isWeatherLoading ? <div className='glass-panel p-4 text-white'>Loading weather forecast...</div> : forecast && <Forecast forecast={forecast} />}
                     </div>
                 </div>
             </main>
