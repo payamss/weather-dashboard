@@ -9,7 +9,7 @@ import { FaLocationArrow, FaWind } from 'react-icons/fa6';
 import { FiSunrise, FiSunset } from 'react-icons/fi';
 import { TbUvIndex } from 'react-icons/tb';
 import { MdVisibility } from 'react-icons/md';
-function TodayCard(weather: CurrentWeather, high: number, low: number, local: IWeatherLocal) {
+function TodayCard(weather: CurrentWeather, high: number, low: number) {
     return (
         <div className='w-80 rounded-3xl bg-gray-500 p-4 text-white'>
             <div className='mb-2 flex items-center justify-between'>
@@ -24,11 +24,6 @@ function TodayCard(weather: CurrentWeather, high: number, low: number, local: IW
             </div>
             <hr></hr>
 
-            <div className='m-1 grid grid-cols-2'>
-                <IconValueComponent icon={FaTemperatureHigh} value={local.Temperature.toFixed(1).toString()} unit={local.Temperature_unit} iconColor='text-red-700' />
-                <IconValueComponent icon={WiHumidity} value={local.Humidity.toFixed(0).toString()} unit={local.Humidity_unit} iconColor='text-blue-700' />
-            </div>
-            <hr></hr>
             <div className='flex items-center justify-between'>
                 <div className='grid-row-2 grid text-xs'>
                     <div className='grid grid-cols-2'>
@@ -48,7 +43,7 @@ function TodayCard(weather: CurrentWeather, high: number, low: number, local: IW
 
             <div className='m-1 grid grid-cols-2'>
                 <IconValueComponent icon={PiGaugeBold} value={weather.pressure.toString()} unit='Mpa' iconColor='text-blue-700' />
-                <IconValueComponent icon={WiHumidity} value={weather.humidity.toString()} unit={local.Humidity_unit} iconColor='text-blue-700' />
+                <IconValueComponent icon={WiHumidity} value={weather.humidity.toString()} unit='%' iconColor='text-blue-700' />
             </div>
             <div className='m-1 grid grid-cols-2'>
                 <IconValueComponent icon={FaWind} value={weather.wind_speed.toString()} unit='km/h' iconColor='text-blue-700' />
