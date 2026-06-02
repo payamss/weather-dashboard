@@ -20,7 +20,7 @@ const CitySearch: React.FC<ICitySearch> = ({ city, setCity }) => {
                 type='text'
                 value={searchCity}
                 onChange={(e) => setSearchCity(e.target.value)}
-                className='min-w-0 w-full flex-grow rounded-l-xl border border-slate-300/15 bg-slate-950/70 px-4 py-2 text-sm text-slate-100 placeholder:text-slate-400 focus:border-sky-400/80 focus:outline-none focus:ring-2 focus:ring-sky-500/30'
+                className='w-full min-w-0 flex-grow rounded-l-xl border border-slate-300/15 bg-slate-950/70 px-4 py-2 text-sm text-slate-100 placeholder:text-slate-400 focus:border-sky-400/80 focus:outline-none focus:ring-2 focus:ring-sky-500/30'
                 placeholder='Search city...'
             />
             <button

@@ -88,7 +88,11 @@ const Home = () => {
             <Header city={city} setCity={setCity} unit={unit} setUnit={setUnit} />
 
             <main className='mx-3 mb-6 mt-4 justify-center align-middle'>
-                {weatherError && <div className='glass-panel mx-2 my-2 border-yellow-300/35 bg-yellow-900/40 p-3 text-sm text-yellow-100'>OpenWeather unavailable: {weatherError}. Showing local sensor data when available.</div>}
+                {weatherError && (
+                    <div className='glass-panel mx-2 my-2 border-yellow-300/35 bg-yellow-900/40 p-3 text-sm text-yellow-100'>
+                        OpenWeather unavailable: {weatherError}. Showing local sensor data when available.
+                    </div>
+                )}
                 {localError && <div className='glass-panel mx-2 my-2 border-red-300/35 bg-red-900/40 p-3 text-sm text-red-100'>Local sensor unavailable: {localError}</div>}
                 <div className='flex flex-col justify-center gap-2 xl:flex-row'>
                     <div className='mx-2 my-3 flex items-start justify-center'>
