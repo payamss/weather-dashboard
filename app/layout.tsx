@@ -2,7 +2,6 @@
 import type { Metadata } from 'next';
 import { Outfit, Source_Sans_3 } from 'next/font/google';
 import './globals.css';
-import Footer from './components/footer';
 
 const outfit = Outfit({
     subsets: ['latin'],
@@ -26,11 +25,7 @@ export default function RootLayout({
 }>) {
     return (
         <html lang='en'>
-            <body className={`${outfit.variable} ${sourceSans.variable} flex min-h-screen flex-col`}>
-                {/* <Header /> */}
-                <main className='flex-grow'>{children}</main>
-                <Footer />
-            </body>
+            <body className={`${outfit.variable} ${sourceSans.variable} flex min-h-screen flex-col`}>{children}</body>
         </html>
     );
 }

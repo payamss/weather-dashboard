@@ -1,11 +1,11 @@
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
-import TodayCard from './components/main/data_section/today_section/today_card';
+import TodayCard from '../components/main/data_section/today_section/today_card';
 import Header from '@/app/components/header';
-import { WeatherResponse } from './types/weather_response';
-import Forecast from './components/main/data_section/forecast';
-import LocalSensorCard from './components/main/data_section/today_section/local_sensor_card';
+import { WeatherResponse } from '../types/weather_response';
+import Forecast from '../components/main/data_section/forecast';
+import LocalSensorCard from '../components/main/data_section/today_section/local_sensor_card';
 
 const Home = () => {
     const [city, setCity] = useState<string>('Frankfurt am Main');
@@ -76,11 +76,11 @@ const Home = () => {
     }, [city, unit]);
 
     useEffect(() => {
-        fetchWeatherData(); // Initial fetch
+        fetchWeatherData();
 
-        const intervalId = setInterval(fetchWeatherData, 30 * 60 * 1000); // Auto-refresh every 30 min
+        const intervalId = setInterval(fetchWeatherData, 30 * 60 * 1000);
 
-        return () => clearInterval(intervalId); // Cleanup on unmount
+        return () => clearInterval(intervalId);
     }, [fetchWeatherData]);
 
     return (
